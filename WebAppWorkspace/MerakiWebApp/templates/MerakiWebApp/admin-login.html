@@ -1,0 +1,20 @@
+{% extends 'MerakiWebApp/base.html' %}
+
+{% block title_block %}
+    Admin Mode
+{% endblock %}
+
+{% block nav_block %}
+    <h1>Admin Login</h1>
+    <form id="loginf_form" method="post" action="{% url 'MerakiApp:admin-login' %}">
+        {% csrf_token %}
+        Username: <input type="text" name="username" value="" size="50"/>
+        <br />
+        Password: <input type="password" name="password" value="" size="50"/>
+        <br />
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock %}
+
+{% block body_block%}
+{% endblock %}

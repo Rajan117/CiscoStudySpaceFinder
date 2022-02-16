@@ -1,0 +1,20 @@
+{% extends 'MerakiWebApp/base.html' %}
+
+{% block title_block %}
+    Admin Mode
+{% endblock %}
+
+{% block nav_block %}
+    {% if device %}
+        <h1>{{ device.name }}</h1>
+    {% endif %}
+{% endblock %}
+
+{% block body_block%}
+    {% if device %}
+        <li>{{ device.location_tag }}</li>
+        <li>{{ device.type }}</li>
+        <li>{{ device.model }}</li>
+        <li>{{ device.serial }}</li>
+    {% endif %}
+{% endblock %}

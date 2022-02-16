@@ -1,0 +1,72 @@
+{% extends 'MerakiWebApp/base.html' %}
+
+{% block title_block %}
+    User Mode
+{% endblock %}
+
+{% block nav_block %}
+<h1>Search for a study space</h1>
+{% endblock %}
+
+{% block body_block%}
+	<div class="rounded" id="sliders">
+		<form method="POST" action="{% url 'MerakiApp:user-search' %}">
+			{% csrf_token %}
+			<div class="rounded sliderBox">
+			<label for="name_search"><strong>Name:</strong></label>
+			<input type="search" name="search" id="name_search">
+			</div>
+
+			<div class="rounded sliderBox">
+			<h3>Filter by noise level</h3>
+				<label for="noise_filter_max">Max:</label>
+				<input type="range" id="noise_filter_max" name="max_noise" value="0" min="0" max="100" oninput="this.nextElementSibling.value = this.value">
+				<output>0</output>
+				<br>
+				<label for="noise_filter_min">Min:</label>
+				<input type="range" id="noise_filter_min" name="min_noise" value="0" min="0" max="100" oninput="this.nextElementSibling.value = this.value">
+				<output>0</output>
+			</div>
+			
+			<div class="rounded sliderBox">
+			<h3>Filter by light level</h3>
+				<label for="light_filter_max">Max:</label>
+				<input type="range" id="light_filter_max" name="max_light" value="0" min="0" max="100" oninput="this.nextElementSibling.value = this.value">
+				<output>0</output>
+				<br>
+				<label for="light_filter_min">Min:</label>
+				<input type="range" id="light_filter_min" name="min_light" value="0" min="0" max="100" oninput="this.nextElementSibling.value = this.value">
+				<output>0</output>
+			</div>
+			
+			<div class="rounded sliderBox">
+			<h3>Filter by number of people</h3>
+				<label for="people_filter_max">Max:</label>
+				<input type="range" id="people_filter_max" name="max_people" value="0" min="0" max="100" oninput="this.nextElementSibling.value = this.value">
+				<output>0</output>
+				<br>
+				<label for="people_filter_min">Min:</label>
+				<input type="range" id="people_filter_min" name="min_people" value="0" min="0" max="100" oninput="this.nextElementSibling.value = this.value">
+				<output>0</output>
+			</div>
+			
+			<div class="sliderBox">
+			<button class="btn btn-primary mr-1  btn-lg active" aria-pressed="true"id="SearchButton" type="submit"> Search </button>
+			</div>
+		</form>
+
+
+		<br>
+
+		{% if results %}
+			<strong>Results:</strong>
+			<ul>
+				{% for StudySpace in results %}
+					<li>{{ StudySpace.name }}</li>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<strong>Cannot find any study spaces matching that name.</strong>
+		{% endif %}
+	</div>
+{% endblock %}

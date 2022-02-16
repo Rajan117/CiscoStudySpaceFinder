@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+
+  <head>
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	
+	<link rel="stylesheet" href="{% static 'stylesheets/external.css' %}" type="text/css">
+    <title>
+      Study Space Finder -
+        {% block title_block %}
+          Base case
+        {% endblock %}
+    </title>
+  </head>
+  
+  <body>
+	  <nav class="navbar navbar-expand-lg navbar navbar-fixed-top">
+		<div class="float-left">
+		{% block nav_block %}
+		{% endblock %}
+		</div>
+		
+		<ul class="navbar-nav ml-auto">
+			<a href="{% url 'MerakiApp:user-dashboard' %}">
+			<button type="button" class="btn btn-primary mr-1  btn-lg active" aria-pressed="true" aria-label="Right Align" >User Dashboard
+				<span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+			</button>
+			</a>
+			
+			<a href="{% url 'MerakiApp:admin-login' %}">
+			<button type="button" class="btn btn-primary mr-1  btn-lg active" aria-pressed="true" aria-label="Right Align" >Admin Dashboard
+				<span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+			</button>
+			</a>
+		</ul>
+		
+	  </nav>
+
+
+      {% block body_block %}
+        Base case
+      {% endblock %}
+  </body>
+</html>

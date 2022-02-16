@@ -1,0 +1,14 @@
+autograd @ git+https://github.com/HIPS/autograd@01eacff7a4f12e6f7aebde7c4cb4c1c2633f217d
+certifi==2021.10.8
+charset-normalizer==2.0.8
+Django==2.2.17
+gunicorn==20.1.0
+idna==3.3
+jhwutils @ https://github.com/johnhw/jhwutils/zipball/master
+Pillow==8.4.0
+pytz==2021.3
+requests==2.26.0
+sqlparse==0.4.2
+urllib3==1.26.7
+waitress==2.0.0
+wincertstore==0.2

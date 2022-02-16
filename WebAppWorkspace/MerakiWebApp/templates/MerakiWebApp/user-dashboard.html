@@ -1,0 +1,56 @@
+{% extends 'MerakiWebApp/base.html' %}
+
+{% block title_block %}
+    User Mode
+{% endblock %}
+
+
+{% block nav_block %}
+    <h1>User Dashboard</h1>
+{% endblock %}
+	
+{% block body_block %}
+	<div class="flex-containter">
+		<div class="rounded float-left" id="AreasTitle">
+			<strong>Areas</strong>
+		</div>
+		
+		<div class="float-right" id="searchButtonDiv">
+			<a href="{% url 'MerakiApp:user-search' %}">
+				<button id="HomeSearchButton" type="button" class="btn btn-primary mr-1  btn-lg active float-right" aria-pressed="true" aria-label="Right Align" ><strong>Search</strong>
+				</button>
+			</a>
+		</div>
+	</div>
+	
+	<br>
+    <div class="rounded" id="spacesList">
+
+    <form method=post">
+        <label for="order_options">Order by:</label>
+        <select name="order_options" id="order_options">
+            <option value="Unselected">Select an option</option>
+            <option value="People">People</option>
+            <option value="Noise">Noise</option>
+            <option value="Temperature">Temperature</option>
+            <option value="Light">Light</option>
+        </select>
+
+        <button type="submit">Reorder Results</button>
+        {{ order_type }}
+    </form>
+    
+        {% if StudySpaces %}
+            <ul>
+                {% for StudySpace in StudySpaces %}
+                <li><b>{{ StudySpace.name }}</b></li>
+                    <li style="margin-left:2em">{{ StudySpace.avg_noise_level }} degrees</li>
+                    <li style="margin-left:2em">{{ StudySpace.avg_light_level }} brightness</li>
+                    <li style="margin-left:2em">{{ StudySpace.people }} people</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+        <strong>Cannot find any study spaces at this time.</strong>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,72 @@
+body {
+	background-color: #E5E5E5;
+}
+
+h1 {
+	color: white;
+}
+
+nav {
+	background-color: #3DB9FF;
+	margin-bottom: 25px;
+}
+
+.rounded {
+	margin:auto;
+	padding:10px;
+	background-color:white;
+	margin-right:60px;
+	margin-left:60px;
+}
+
+.sliderBox {
+	background-color: #EFEFEF;
+	margin: 15px;
+}
+
+#searchTitle{
+	background-color:#A9EAFF;
+}
+
+#SearchButton{
+	font-size:25px;
+	background-color:#3DB9FF;
+	border: none;
+	padding:10px;
+	width: 100%;
+}
+
+#sliders {
+	text-align:center;
+}
+
+#searchButtonDiv{
+	margin-right:60px;
+	width:30%;
+}
+
+#HomeSearchButton{
+	font-size:40px;
+	background-color:#3DB9FF;
+	border: none;
+	width:100%;
+	padding:20px;
+}
+
+#AreasTitle {
+	background-color:#A9EAFF;
+	color:#000F9A;
+	padding:20px;
+	font-size: 40px;
+	width:60%;
+	text-align:center;
+	margin-left:60px;
+	position:absolute;
+}
+
+#spacesList {
+	width:92%;
+	border:3px;
+	margin-top:100px;
+	margin-bottom: 50px;
+}
